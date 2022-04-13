@@ -1,8 +1,6 @@
 //lista de convidados
 var convidados = [
-  { id: 1, nome: "Gabriel", idade: 18 },
-  { id: 2, nome: "leo", idade: 19 },
-  { id: 3, nome: "ju", idade: 22 },
+  { id: 1, nome: "Gabriel", idade: 18 }
 ];
 
 // pega os ids do html e tras eles para a variavel do javascript
@@ -18,16 +16,12 @@ el_btn.onclick = function () {
   var idade = el_input_idade.value;
 
   if (nome !== "" && idade !== "") {
-    if (idade <= 110) {
-      cont = convidados.length + 1;
-      convidados.push({ id: cont, nome: nome, idade: idade });
-      el_input_nome.value = "";
-      el_input_idade.value = "";
+    cont = convidados.length + 1;
+    convidados.push({ id: cont, nome: nome, idade: idade });
+    el_input_nome.value = "";
+    el_input_idade.value = "";
 
-      listar_convidados();
-    } else {
-      alert("Idade maior do que 110 anos");
-    }
+    listar_convidados();
   } else {
     alert("Preencha todos os campos!");
   }
@@ -40,18 +34,20 @@ function listar_convidados() {
   for (const convidado of convidados) {
     var el_li = document.createElement("li");
     var el_convidado = document.createTextNode(
-      `${convidado.id} - ${convidado.nome}, ${convidado.idade} anos`
+      `${convidado.id} - ${convidado.nome}, ${convidado.idade} anos `
     );
 
-    var el_excluir = document.createElement("a");
-    el_excluir.setAttribute("href", "#");
+    var el_excluir = document.createElement("button");
+    el_excluir.setAttribute("id", "btn-excluir");
     el_excluir.onclick = function () {
       convidados = convidados.filter(function (item) {
+          // Enquanto item.nome for diferente de convidado.nome, ele retorna para a lista,
+          // e quando for igual ele não retorna, e assim apagando o nome da lista.
         return item.nome !== convidado.nome;
       });
       listar_convidados();
     };
-    var el_excluir_texto = document.createTextNode(" Excluir");
+    var el_excluir_texto = document.createTextNode("Apagar");
 
     el_excluir.appendChild(el_excluir_texto);
     el_li.appendChild(el_convidado);

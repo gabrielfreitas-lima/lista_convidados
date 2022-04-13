@@ -19,12 +19,12 @@ html,body{
     background-color: lightsteelblue;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #app .input{
     margin: 10px 0px 0px 0px;
     background-color: aqua;
-    color: black;
     outline: none;
     padding-left: 5px;
     border: none;
@@ -32,25 +32,50 @@ html,body{
     border-radius: 5px;
 }
 
+#app .input::placeholder{
+    color: lightcoral;
+}
+
 #app .input:hover{
     background-color: lightcoral;
-    transition-duration: 400ms;
+    transition-duration: 0.4s;
+    color: aqua;
+}
+
+#app .input:hover::placeholder{
+    color: aqua;
 }
 
 .btn{
-    height: 30px;
-    width: 110px;
     font-weight: 700;
-    padding: 5px;
+    padding: 7px;
     border: none;
     border-radius: 5px;
     color: lightcoral;
-    margin: 10px 0px 0px 0px;
     background-color: aqua;
+    cursor: pointer;
 }
 
 .btn:hover{
     background-color: lightcoral;
     color: aqua;
-    transition-duration: 400ms;
+    transition-duration: 0.4s;
+}
+
+
+#btn-excluir{
+    text-decoration: none;
+    background-color: steelblue;
+    color: aqua;
+    padding: 3px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#btn-excluir:hover{
+    background-color: aqua;
+    color: steelblue;
+    transition: 0.6s;
 }
