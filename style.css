@@ -1,0 +1,18 @@
+@import "./assets/CSS/main.css";
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: steelblue;
+    color: black;
+    font-family: cursive;
+}

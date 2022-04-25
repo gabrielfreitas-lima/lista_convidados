@@ -1,7 +1,6 @@
 //lista de convidados
-var convidados = [
-  { id: 1, nome: "Gabriel", idade: 18 }
-];
+//
+var convidados = JSON.parse(localStorage.getItem("convidados")) || []; //se o array estiver criado || não criado, então cria
 
 // pega os ids do html e tras eles para a variavel do javascript
 var el_lista = document.getElementById("lista");
@@ -17,15 +16,31 @@ el_btn.onclick = function () {
 
   if (nome !== "" && idade !== "") {
     cont = convidados.length + 1;
-    convidados.push({ id: cont, nome: nome, idade: idade });
+    //verifica se o id esta repetido
+    for (ident of convidados) {
+      if (ident.id === cont) {
+        cont++;
+      }
+    }
+    if(idade < 10){
+      convidados.push({ id: cont, nome: nome, idade: "0"+idade });
+    }else{
+      convidados.push({ id: cont, nome: nome, idade: idade });
+    }
+
     el_input_nome.value = "";
     el_input_idade.value = "";
 
+    salvar_dados();
     listar_convidados();
   } else {
     alert("Preencha todos os campos!");
   }
 };
+
+function salvar_dados() {
+  localStorage.setItem("convidados", JSON.stringify(convidados));
+}
 
 //function que chama o laço de repetiçao para mostrar os convidados na page
 function listar_convidados() {
@@ -41,10 +56,11 @@ function listar_convidados() {
     el_excluir.setAttribute("id", "btn-excluir");
     el_excluir.onclick = function () {
       convidados = convidados.filter(function (item) {
-          // Enquanto item.nome for diferente de convidado.nome, ele retorna para a lista,
-          // e quando for igual ele não retorna, e assim apagando o nome da lista.
-        return item.nome !== convidado.nome;
+        // Enquanto item.nome for diferente de convidado.nome, ele retorna para a lista,
+        // e quando for igual ele não retorna, e assim apagando o nome da lista.
+        return item.id !== convidado.id;
       });
+      salvar_dados();
       listar_convidados();
     };
     var el_excluir_texto = document.createTextNode("Apagar");

@@ -1,20 +1,3 @@
-*{
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
-}
-
-html,body{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: steelblue;
-    color: black;
-    font-family: cursive;
-}
-
 .container{
     background-color: lightsteelblue;
     padding: 20px;
@@ -23,42 +6,46 @@ html,body{
 }
 
 #app .input{
-    margin: 10px 0px 0px 0px;
-    background-color: aqua;
-    outline: none;
-    padding-left: 5px;
-    border: none;
     height: 30px;
-    border-radius: 5px;
+    color: aqua;
+    outline: none;
+    border: 1px solid aqua;
+    margin: 10px 0px 0px 0px;
+    padding-left: 5px;
+        border-radius: 5px;
+    background-color: steelblue;
 }
 
 #app .input::placeholder{
-    color: lightcoral;
-}
-
-#app .input:hover{
-    background-color: lightcoral;
-    transition-duration: 0.4s;
     color: aqua;
 }
 
-#app .input:hover::placeholder{
-    color: aqua;
+#app .input:focus{
+    background-color: aqua;
+    border: none;
+    transition-duration: 0.2;
+    color: steelblue;
+}
+
+#app .input:focus::placeholder{
+    color: steelblue;
 }
 
 .btn{
     font-weight: 700;
-    padding: 7px;
+    padding: 8px 10px 8px 10px;
     border: none;
     border-radius: 5px;
-    color: lightcoral;
+    color: steelblue;
     background-color: aqua;
     cursor: pointer;
 }
 
 .btn:hover{
-    background-color: lightcoral;
     color: aqua;
+    border: 2px solid aqua;
+    padding: 6px 8px 6px 8px;
+    background-color: steelblue;
     transition-duration: 0.4s;
 }
 
